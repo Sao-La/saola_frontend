@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/saola_frontend/precache-manifest.82eb6b413bb10f72c395b4f95b8b5bc1.js"
+  "/saola_frontend/precache-manifest.d189cca0d5f153310de2a385c46ee1f4.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b4c54474987783fc47178ba8cc5b23cd",
+    "revision": "76acc4803d126e0c6fd64fd81c0dd9ab",
     "url": "/saola_frontend/index.html"
   },
   {
-    "revision": "dfd224de66e9fa14ef97",
+    "revision": "cd4624d844f792a30911",
     "url": "/saola_frontend/static/css/main.e9536d50.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/saola_frontend/static/js/3.83e60133.chunk.js"
   },
   {
-    "revision": "dfd224de66e9fa14ef97",
-    "url": "/saola_frontend/static/js/main.822f7d88.chunk.js"
+    "revision": "cd4624d844f792a30911",
+    "url": "/saola_frontend/static/js/main.c4f70246.chunk.js"
   },
   {
     "revision": "ba78c06ae83bc3f42b0c",

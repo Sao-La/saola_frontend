@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/saola_frontend/static/css/main.e9536d50.chunk.css",
-    "main.js": "/saola_frontend/static/js/main.822f7d88.chunk.js",
-    "main.js.map": "/saola_frontend/static/js/main.822f7d88.chunk.js.map",
+    "main.js": "/saola_frontend/static/js/main.c4f70246.chunk.js",
+    "main.js.map": "/saola_frontend/static/js/main.c4f70246.chunk.js.map",
     "runtime-main.js": "/saola_frontend/static/js/runtime-main.c40844b5.js",
     "runtime-main.js.map": "/saola_frontend/static/js/runtime-main.c40844b5.js.map",
     "static/js/2.3bdcbeb5.chunk.js": "/saola_frontend/static/js/2.3bdcbeb5.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.83e60133.chunk.js": "/saola_frontend/static/js/3.83e60133.chunk.js",
     "static/js/3.83e60133.chunk.js.map": "/saola_frontend/static/js/3.83e60133.chunk.js.map",
     "index.html": "/saola_frontend/index.html",
-    "precache-manifest.82eb6b413bb10f72c395b4f95b8b5bc1.js": "/saola_frontend/precache-manifest.82eb6b413bb10f72c395b4f95b8b5bc1.js",
+    "precache-manifest.d189cca0d5f153310de2a385c46ee1f4.js": "/saola_frontend/precache-manifest.d189cca0d5f153310de2a385c46ee1f4.js",
     "service-worker.js": "/saola_frontend/service-worker.js",
     "static/css/main.e9536d50.chunk.css.map": "/saola_frontend/static/css/main.e9536d50.chunk.css.map",
     "static/js/2.3bdcbeb5.chunk.js.LICENSE.txt": "/saola_frontend/static/js/2.3bdcbeb5.chunk.js.LICENSE.txt"
@@ -19,6 +19,6 @@
     "static/js/runtime-main.c40844b5.js",
     "static/js/2.3bdcbeb5.chunk.js",
     "static/css/main.e9536d50.chunk.css",
-    "static/js/main.822f7d88.chunk.js"
+    "static/js/main.c4f70246.chunk.js"
   ]
 }
