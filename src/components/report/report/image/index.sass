@@ -1,0 +1,49 @@
+.post-image
+	margin: 13px
+	flex: 0
+	width: calc(100vw - 66px)
+	height: calc(100vw - 66px)
+	border-radius: 15px
+	overflow: hidden
+	background-color: #f1f1f1
+
+	&-img
+		width: calc(100vw - 66px)
+		height: calc(100vw - 66px)
+		object-fit: cover
+		overflow: hidden
+		margin-bottom: -3px
+
+	&-overlay
+		margin: -40px 0 0 0 
+		width: 100%
+		height: 40px
+		border-bottom-left-radius: 15px
+		border-bottom-right-radius: 15px
+		background: rgba(255, 255, 255, 0.3)
+		backdrop-filter: blur(10px)
+
+	&-footer
+		display: flex
+		flex-direction: row
+		align-items: center
+		margin: -40px 0 0 0
+		width: calc(100% - 40px)
+		height: 40px
+		border-bottom-left-radius: 15px
+		border-bottom-right-radius: 15px
+		padding: 0 20px 0 20px
+		background: linear-gradient(90deg, rgba(52, 150, 165, 0.15) 11.79%, rgba(108, 219, 159, 0.15) 87.16%)
+		backdrop-filter: blur(10px)
+
+		&-item
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+			width: 60px
+
+		&-text
+			font: normal 14px Montserrat
+			color: #fff
+			margin-left: 8px

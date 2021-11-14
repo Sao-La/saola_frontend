@@ -4,14 +4,23 @@ import { Redirect, Route, Switch, withRouter, BrowserRouter, useHistory } from '
 
 import store from 'store';
 import Home from 'views/home';
+import Login from './views/login';
+import Report from './views/report';
+import Signup from './views/signup';
+
+require('typeface-montserrat');
 
 const App = () => {
+
   return (
     <Provider store={store}>
       <BrowserRouter>
         <ScrollToTop/>
         <Switch>
           <Route path="/" exact component={Home}/>
+          <Route path="/report" exact component={Report}/>
+          <Route path="/login" exact component={Login}/>
+          <Route path="/signup" exact component={Signup}/>
           <Route path="*">
             <Redirect to="/"/>
           </Route>
