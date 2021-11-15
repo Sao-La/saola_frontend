@@ -11,6 +11,36 @@
 		color: #a1a1a1
 		margin: 10px 0 0 0 
 
+.form-container
+	width: 100%
+	margin: 60px 0 0 0
+
+.input
+	width: calc(100vw - 60px - 24px)
+	height: 44px
+	background-color: #f1f1f1
+	border-radius: 15px
+	border: none
+	padding: 0 12px 0 12px
+	margin: 0 0 10px 0
+	font: normal 16px Montserrat
+	border-width: 0 0 0 0
+	::placeholder
+		color: #a1a1a1
+		font: bold 16px Montserrat
+	::ms-input-placeholder
+		color: #a1a1a1
+		font: normal 16px Montserrat
+	::webkit-input-placeholder
+		color: #a1a1a1
+		font: normal 16px Montserrat
+	::moz-placeholder
+		color: #a1a1a1
+		font: normal 16px Montserrat
+	&:focus
+		outline: none
+		border-width: 0 0 0 0	
+
 .button-sign-in
 	display: flex
 	justify-content: center
@@ -22,5 +52,23 @@
 	background: linear-gradient(90deg, rgba(52, 150, 165, 0.15) 11.79%, rgba(108, 219, 159, 0.15) 87.16%)
 
 .text-sign-in
-	margin-left: 10px
+	// margin-left: 10px
 	font: 600 16px Montserrat
+
+.jump-to-sign-up
+	display: flex
+	flex-direction: row
+	justify-content: center
+	align-items: center
+	height: 36px
+	
+
+	&-text
+		font: normal 16px Montserrat
+		color: #a1a1a1
+		margin: 0 4px 0 0
+
+
+		&-highlight
+			color: #a1a1a1
+			font: bold 16px Montserrat

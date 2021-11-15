@@ -6,23 +6,35 @@ import { ReactComponent as SaolaLogo} from '../../assets/icons/saola-logo.svg';
 import { ReactComponent as ArrowLeft} from '../../assets/icons/arrow-left.svg';
 import Input from '../../components/signup/input';
 
+import * as api from '../../utils/api';
+
+import { useHistory } from 'react-router-dom';
+
 import './index.sass';
 
 const Signup = () => {
 	const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       email: '',
-			displayName: '',
+			name: '',
 			password: '',
     }
   });
 
-	function onSubmit(data) {
+	const history = useHistory();
 
+	async function onSubmit(data) {
+		const response = await api.request.post('/signup', data);
+		if (response.code == 0) {
+			history.push('/login');
+		} else {
+			alert(response.msg);
+		}
 	}
+
 	return (
 		<div className="container">
-			<ArrowLeft width="32px" height="32px" className="back-button" />
+			<ArrowLeft width="32px" height="32px" className="back-button" onClick={() => history.push('/login')}/>
 			<SaolaLogo width={138} height={44} />
 			<p className="slogan">Hello, welcome!</p>
 			<div className="form-container">
@@ -56,7 +68,7 @@ const Signup = () => {
 							onChange={onChange}
 						/>
 					)}
-					name="displayName"
+					name="name"
 				/>
 				<Controller
 					control={control}
@@ -74,11 +86,15 @@ const Signup = () => {
 					)}
 					name="password"
 				/>
-				<div className='button-sign-up'>
+				<div className='button-sign-up' onClick={handleSubmit(onSubmit)}>
 					<p className="text-sign-up">Sign up</p>
 				</div>
 			</div>
-			<div style={{height: '80px'}} />
+			<div className='jump-to-sign-in'>
+					<p className="jump-to-sign-in-text">Already have an account?</p>
+					<p className="jump-to-sign-in-text-highlight" onClick={() => history.push('/login')}>Sign in</p>
+				</div>
+			{/* <div style={{height: '80px'}} /> */}
 		</div>
 	)
 }

@@ -5,6 +5,8 @@ import TabBar from '../../components/tab-bar';
 
 import { ReactComponent as PlusGradient } from '../../assets/icons/plus-gradient.svg'
 
+import { useHistory } from 'react-router-dom';
+
 import './index.sass';
 
 const Home = () => {
@@ -46,6 +48,12 @@ const Home = () => {
     likes: 10, 
     comments: 10,
   }]
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!window.localStorage.getItem("access_token")) history.push('/login');
+  }, [])
 
   return (
     <div className="home">

@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { Redirect, Route, Switch, withRouter, BrowserRouter, useHistory } from 'react-router-dom';
 
-import store from 'store';
-import Home from 'views/home';
+import store from './store';
+import Home from './views/home';
 import Login from './views/login';
+import Map from './views/map';
 import Report from './views/report';
 import Signup from './views/signup';
 
@@ -19,6 +20,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/report" exact component={Report}/>
+          <Route path="/map" exact component={Map}/>
           <Route path="/login" exact component={Login}/>
           <Route path="/signup" exact component={Signup}/>
           <Route path="*">

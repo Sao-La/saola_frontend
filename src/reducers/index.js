@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux'
+import provincesReducer from './provinces';
+import authReducer from './auth';
 
 const createRootReducer = () =>
   combineReducers({
-    // More store reducers here
+    provinces: provincesReducer,
+    auth: authReducer,
   });
 
 export default createRootReducer;

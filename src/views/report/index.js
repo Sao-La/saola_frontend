@@ -9,7 +9,9 @@ import './index.sass';
 import ReportCard from '../../components/report/report';
 
 const Report = () => {
-
+  navigator.geolocation.getCurrentPosition(position => {
+    console.log(position.coords.latitude, position.coords.longitude);
+  })
   
   return (
     <div className="report">

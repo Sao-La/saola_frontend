@@ -14,7 +14,7 @@ instance.interceptors.response.use(
   }
 );
 
-const request = {
+export const request = {
   get: async (url, params = {}) => {
     try {
       const parsedParams = Object.keys(params)
