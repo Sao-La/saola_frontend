@@ -50,6 +50,22 @@ export const request = {
       return err.response ? err.response.data : err;
     }
   },
+
+  postForm: async (url, data) => {
+    try {
+      return await instance.post(url, data, {
+        headers: {
+          authorization: window.localStorage.getItem("access_token")
+            ? `Bearer ${window.localStorage.getItem("access_token")}`
+            : "",
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+    } catch (err) {
+      console.error(err);
+      return err.response ? err.response.data : err;
+    }
+  },
   put: async (url, data) => {
     try {
       return await instance.put(url, data, {

@@ -8,10 +8,10 @@ import { ReactComponent as PlusGradient } from '../../assets/icons/plus-gradient
 import './index.sass';
 import ReportCard from '../../components/report/report';
 
+import { useHistory } from 'react-router-dom';
+
 const Report = () => {
-  navigator.geolocation.getCurrentPosition(position => {
-    console.log(position.coords.latitude, position.coords.longitude);
-  })
+  const history = useHistory();
   
   return (
     <div className="report">

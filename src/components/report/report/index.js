@@ -1,10 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 import { ReactComponent as ImageLogo } from '../../../assets/icons/image.svg';
 import { ReactComponent as X } from '../../../assets/icons/x.svg';
 import { ReactComponent as XCircle } from '../../../assets/icons/x-circle.svg';
 
 import { useSelector } from 'react-redux';
+
+import { useHistory } from 'react-router-dom';
+
+import * as api from '../../../utils/api'
 
 import './index.sass'
 import { Controller, useForm } from 'react-hook-form';
@@ -13,20 +17,64 @@ const ReportCard = () => {
 
 	const [text, setText] = useState('')
 	const [image, setImage] = useState(null)
+	const [imageSource, setImageSource] = useState('')
+	const [position, setPosition] = useState(null)
+
+	useEffect(() => {
+		navigator.geolocation.getCurrentPosition(position => {
+			setPosition({
+				latitude: position.coords.latitude, 
+				longitude: position.coords.longitude,
+			})
+		})
+	}, [])
+
+	const history = useHistory()
+
+	const onTextChange = (e) => {
+		setText(e.target.value)
+	}
+
+	const onImageChange = (e) => {
+		setImage(e.target.files[0])
+		const reader = new FileReader();
+  	const url = reader.readAsDataURL(e.target.files[0]);
+
+   reader.onloadend = function (e) {
+      setImageSource([reader.result]);
+    }.bind(this);
+  console.log(url) // Would see a path?
+	}
 
 	const auth = useSelector(state => state.auth)
 
 	const inputFileRef = useRef(null)
 
-	const { control, handleSubmit, formState: { errors }, getValues, setValue } = useForm({
-    defaultValues: {
-      desc: '',
-			image: null,
-    }
-  });
+	async function onSubmit() {
+		console.log(text, image)
 
-	function onSubmit(data) {
-		console.log(data)
+	
+		const response = await api.request.postForm('/report', {
+			desc: text,
+			img: image,
+			location: [position.latitude, position.longitude],
+		});
+
+		console.log({
+			desc: text,
+			img: image,
+			'location[0]': position.latitude,
+			'location[1]': position.longitude,
+		})
+		console.log(response);
+
+		// if (response.code == 0) {
+			history.push('/');
+		// } else {
+			// alert(response.msg);
+		// }
+
+		
 	}
 
 	return (
@@ -40,44 +88,26 @@ const ReportCard = () => {
 				<X width={32} height={32} style={{marginRight: '9px'}} />
 			</div>
 			<div className="report-card-body">
-			<Controller
-				control={control}
-				rules={{
-					required: true,
-				}}
-				render={({ field: { onChange, onBlur, value } }) => (
-					<textarea 
-						className="report-card-body-input" 
-						placeholder="What's happening?" 
-						value={value}
-						onChange={onChange}
-					/>
-				)}
-				name="desc"
+			<textarea 
+				className="report-card-body-input" 
+				placeholder="What's happening?" 
+				onChange={onTextChange}
+				value={text}
 			/>
-			<Controller
-				control={control}
-				rules={{
-					required: true,
-				}}
-				render={({ field: { onChange, onBlur, value } }) => (
-					<input 
-						type='file' 
-						accept="image/*"
-						ref={inputFileRef} 
-						style={{display: 'none'}}
-						onChange={onChange}
-					/>
-				)}
-				name="image"
+			<input 
+				type='file' 
+				accept="image/*"
+				ref={inputFileRef} 
+				style={{display: 'none'}}
+				onChange={onImageChange}
 			/>
 			</div>
-			<div className="report-card-image" onClick={() => !getValues('image') && inputFileRef.current.click()}>
-				{getValues('image') ? <img src={getValues('image')} alt="report image" className="report-card-image-img" />
-							              : <ImageLogo width={32} height={32} />}	
+			<div className="report-card-image" onClick={() => !image && inputFileRef.current.click()}>
+				{image ? <img src={imageSource} alt="report image" className="report-card-image-img" />
+							 : <ImageLogo width={32} height={32} />}	
 			</div>
-			{getValues('image') && <XCircle width={32} height={32} onClick={() => setValue('image', null)} className="report-card-remove-image" />}
-			<div className="report-card-footer" onClick={handleSubmit(onSubmit)}>
+			{image && <XCircle width={32} height={32} onClick={() => setImage(null)} className="report-card-remove-image" />}
+			<div className="report-card-footer" onClick={() => onSubmit()}>
 				<p className="report-card-footer-text">Report</p>
 			</div>
 		</div>
